@@ -1,0 +1,55 @@
+# Docker Compose for Local Development
+# PostgreSQL + Redis for local testing
+# Production uses Render managed services
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: biznesplan_postgres
+    environment:
+      POSTGRES_USER: biznesplan_user
+      POSTGRES_PASSWORD: biznesplan_password
+      POSTGRES_DB: biznesplan_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U biznesplan_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis (Task Queue Broker + Cache)
+  redis:
+    image: redis:7-alpine
+    container_name: biznesplan_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+# Usage:
+# Start services:  docker-compose up -d
+# Stop services:   docker-compose down
+# View logs:       docker-compose logs -f
+# Remove volumes:  docker-compose down -v
+
+# Update .env with:
+# DATABASE_URL=postgresql://biznesplan_user:biznesplan_password@localhost:5432/biznesplan_db
+# REDIS_URL=redis://localhost:6379/0
+

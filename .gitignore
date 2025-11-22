@@ -1,0 +1,125 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Alembic
+# (keep migrations folder, but ignore temp files)
+alembic/versions/__pycache__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+
+# Jupyter Notebooks (if used)
+.ipynb_checkpoints
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Documentation builds
+docs/_build/
+
+# NEVER commit these sensitive files:
+*_token.txt
+*_credentials.json
+*_secret_key.txt
+
+# NEVER commit .cursor/ - contains proprietary business plan template
+.cursor/
+
+# ======================================
+# PROJECT-SPECIFIC FOLDERS (CRITICAL!)
+# ======================================
+
+# NEVER commit Docs/ - contains private API keys, configurations, and sensitive documentation
+Docs/
+docs/
+
+# NEVER commit manually created business plans - contain real client data
+Manualnie-biznesplany/
+
+# Generated business plans (if stored locally)
+generated_biznesplany/
+biznesplany_output/
+
+# ======================================
+# PROJECT DOCUMENTATION (PRIVATE!)
+# ======================================
+
+# NEVER commit PRD - contains full project specification and sensitive information
+PRD.md
+
+# NEVER commit LLM guidelines - proprietary AI generation rules
+LLM-Guideline.md
+
+# NEVER commit AI agent development rules - local development guidelines
+AGENTS.md
+.cursorrules
+
+.env.bak
